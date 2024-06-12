@@ -41,8 +41,8 @@ export default {
 
 <template>
     <main>
-        <section class="row cards-wrapper align-items-stretch justify-content-center">
-            <article v-for="card in cardsList" :key="card.id" class="col-2 me-2 mb-5">
+        <section class="row cards-wrapper align-items-stretch justify-content-center pt-4">
+            <article v-for="card in cardsList" :key="card.id" class="col-2 me-1 mb-3">
                 <MainSingleCard :card="card"/>
             </article>
         </section>
