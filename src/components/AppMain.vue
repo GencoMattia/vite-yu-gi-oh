@@ -36,13 +36,16 @@ export default {
 
 <template>
     <main>
-        <section class="cards-wrapper">
-            <article v-for="card in cardsList" :key="card.id">
-                <div class="card" style="width: 18rem;">
-                    <img :src="card.card_images.image_url" class="card-img-top" alt="...">
+        <section class="row cards-wrapper">
+            <article v-for="card in cardsList" :key="card.id" class="col-2 me-2">
+                <div class="card" style="width: 100;">
+                    <img :src="card.card_images[0].image_url" :alt="card.name" class="card-img-top">
                     <div class="card-body">
-                        <p class="card-text">
-                            {{ card.desc }}
+                        <h2 class="card-name text-center fs-6 fw-bold">
+                            {{ card.name }}
+                        </h2>
+                        <p class="card-archetype">
+                            {{ card.archetype }}
                         </p>
                     </div>
                 </div>
@@ -56,5 +59,16 @@ export default {
 
     main {
         background-color: $appOrange;
+        height: calc(100vh - 100px);
+        overflow: auto;
+
+        section {
+
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
     }
 </style>

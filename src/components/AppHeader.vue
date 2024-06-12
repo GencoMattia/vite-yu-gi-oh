@@ -26,6 +26,10 @@ export default {
 <style scoped>
 header {
     height: 100px;
+
+    nav {
+        height: 100%;
+    }
 }
 
 img {
