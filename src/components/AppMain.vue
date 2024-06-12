@@ -1,7 +1,12 @@
 <script>
 import axios from 'axios';
+import MainSingleCard from './MainSingleCard.vue';
 
 export default {
+    components: {
+        MainSingleCard,
+    },
+
     data() {
         return {
             cardsList: [
@@ -38,17 +43,7 @@ export default {
     <main>
         <section class="row cards-wrapper align-items-stretch justify-content-center">
             <article v-for="card in cardsList" :key="card.id" class="col-2 me-2 mb-5">
-                <div class="card" style="width: 100%; height: 100%;">
-                    <img :src="card.card_images[0].image_url" :alt="card.name" class="card-img-top">
-                    <div class="card-body p-2">
-                        <h2 class="card-name text-center fs-6 fw-bold">
-                            {{ card.name }}
-                        </h2>
-                        <p class="card-archetype text-center">
-                            {{ card.archetype }}
-                        </p>
-                    </div>
-                </div>
+                <MainSingleCard :card="card"/>
             </article>
         </section>
     </main>
@@ -61,10 +56,5 @@ export default {
         background-color: $appOrange;
         height: calc(100vh - 100px);
         overflow: auto;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
     }
 </style>
