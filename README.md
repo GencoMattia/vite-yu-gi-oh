@@ -10,3 +10,12 @@ Documentazione:
 https://ygoprodeck.com/api-guide/
 
 
+----- PASSAGGI -----
+- creo macrostruttura con componenti AppHeader e AppMain, collegando i nuovi componenti ad AppVue
+- AppHeader: creo un semplice header con una navbar di bootstrap
+- AppMain:
+    - creo un container per racchiudere tutto il contenuto di main
+    - creo un nuovo componente per una section per raggruppare gli elementi card
+        - richiamo con l'API la lista di carte
+        - creo un div per racchiudere gli article che saranno riempiti con il componente delle carte singole attraverso un v-for
+    - creo un nuovo componente che si occuperà di gestire la singola carta
