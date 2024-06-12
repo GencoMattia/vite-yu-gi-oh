@@ -14,5 +14,6 @@ export default {
 
 <style lang="scss">
 @use "./styles/general.scss";
+@use "../node_modules/bootstrap/scss/bootstrap.scss";
 
 </style>
