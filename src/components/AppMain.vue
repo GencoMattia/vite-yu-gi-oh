@@ -36,8 +36,8 @@ export default {
 
 <template>
     <main>
-        <section class="row cards-wrapper align-items-stretch">
-            <article v-for="card in cardsList" :key="card.id" class="col-2 me-2">
+        <section class="row cards-wrapper align-items-stretch justify-content-center">
+            <article v-for="card in cardsList" :key="card.id" class="col-2 me-2 mb-5">
                 <div class="card" style="width: 100%; height: 100%;">
                     <img :src="card.card_images[0].image_url" :alt="card.name" class="card-img-top">
                     <div class="card-body p-2">
