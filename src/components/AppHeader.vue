@@ -9,7 +9,11 @@ export default {
 </script>
 
 <template>
-
+    <header>
+        <h2>
+            Sono un Header
+        </h2>
+    </header>
 </template>
 
 <style scoped>
