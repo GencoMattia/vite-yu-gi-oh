@@ -22,7 +22,7 @@ export default {
             selectedArchetype: "",
 
             filteredCards: [
-                this.cardsList
+                
             ],
         };
     },
@@ -66,10 +66,8 @@ export default {
             .finally(function () {
                 // always executed
             });
-        }
-    },
+        },
 
-    computed: {
         filterCardsByArchetype(selectedArchetype) {
             this.selectedArchetype = selectedArchetype;
 
@@ -78,6 +76,8 @@ export default {
             } else {
                 this.filteredCards = this.cardsList.filter(card => card.archetype === selectedArchetype);
             }
+
+            console.log( `Questo è l'archetipo selezionato ${selectedArchetype}`);
         },
     },
 
@@ -95,10 +95,10 @@ export default {
     <section class="row align-items-stretch justify-content-center pt-4 cards-wrapper">
         <div class="col-12 text-bg-dark p-2 mb-2 text-center cards-counter">
             <h4>
-                {{ cardsList.length }} cards has been found
+                {{ filteredCards.length }} cards has been found
             </h4>
         </div>
-        <article v-for="card in cardsList" :key="card.id" class="col-2 me-2 mb-3">
+        <article v-for="card in filteredCards" :key="card.id" class="col-2 me-2 mb-3">
             <MainSingleCard :card="card"/>
         </article>
     </section>
