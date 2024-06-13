@@ -34,6 +34,7 @@ export default {
                 // handle success
                 console.log(response.data.data);
                 this.cardsList = response.data.data;
+                this.filteredCards = this.cardsList;
             })
             .catch(function (error) {
                 // handle error
