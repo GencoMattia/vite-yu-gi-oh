@@ -12,6 +12,12 @@ export default {
             cardsList: [
 
             ],
+
+            archetypeList: [
+                "Alien",
+                "Dragon",
+                "Fairy"
+            ],
         };
     },
 
