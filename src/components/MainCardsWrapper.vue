@@ -41,6 +41,11 @@ export default {
 
 <template>
     <section class="row cards-wrapper align-items-stretch justify-content-center pt-4">
+        <div class="col-12 text-bg-dark p-2 mb-2 text-center cards-counter">
+            <h4>
+                {{ cardsList.length }} cards has been found
+            </h4>
+        </div>
         <article v-for="card in cardsList" :key="card.id" class="col-2 me-2 mb-3">
             <MainSingleCard :card="card"/>
         </article>
