@@ -41,7 +41,7 @@ export default {
 
 <template>
     <section class="row cards-wrapper align-items-stretch justify-content-center pt-4">
-        <article v-for="card in cardsList" :key="card.id" class="col-2 me-1 mb-3">
+        <article v-for="card in cardsList" :key="card.id" class="col-2 me-2 mb-3">
             <MainSingleCard :card="card"/>
         </article>
     </section>
@@ -50,9 +50,9 @@ export default {
 <style scoped lang="scss">
 @use "../styles/partials/variables" as *;
 
-    main {
-        background-color: $appOrange;
-        height: calc(100vh - 100px);
-        overflow: auto;
+    section {
+        max-width: 1200px;
+        background-color: white;
+        margin: 0 auto;
     }
 </style>
