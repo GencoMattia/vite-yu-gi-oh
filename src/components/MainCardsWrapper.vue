@@ -49,10 +49,12 @@ export default {
             .then((response) => {
                 // handle success
                 const cards = response.data.data;
-                const allArchetypes = [];
+                const allArchetypes = [
+                    "Tutti",
+                ];
 
                 cards.map(function(card) {
-                    if (card.archetype !== undefined) {
+                    if (card.archetype !== undefined && !allArchetypes.includes(card.archetype)) {
                         allArchetypes.push(card.archetype);
                     }
                 });
@@ -71,7 +73,7 @@ export default {
         filterCardsByArchetype(selectedArchetype) {
             this.selectedArchetype = selectedArchetype;
 
-            if (selectedArchetype === '') {
+            if (selectedArchetype === 'Tutti') {
                 this.filteredCards = this.cardsList;
             } else {
                 this.filteredCards = this.cardsList.filter(card => card.archetype === selectedArchetype);
