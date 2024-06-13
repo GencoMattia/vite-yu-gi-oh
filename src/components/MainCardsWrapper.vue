@@ -46,7 +46,15 @@ export default {
 </script>
 
 <template>
-    <section class="row cards-wrapper align-items-stretch justify-content-center pt-4">
+    <section class="card-selector">
+        <div class="form-floating">
+            <select class="form-select" aria-label="Floating label select example" name="archetype-selector" id="archetype-selector">
+                <option v-for="(archetype, index) in archetypeList" key="index" :value="archetype">{{ archetype }}</option>
+                </select>
+            <label for="archetype-selector">Choose an archetype:</label>
+        </div>
+    </section>
+    <section class="row align-items-stretch justify-content-center pt-4 cards-wrapper">
         <div class="col-12 text-bg-dark p-2 mb-2 text-center cards-counter">
             <h4>
                 {{ cardsList.length }} cards has been found
@@ -60,8 +68,17 @@ export default {
 
 <style scoped lang="scss">
 @use "../styles/partials/variables" as *;
+    
+    .card-selector {
+        max-width: 1200px;
+        margin: 1rem auto;
 
-    section {
+        div {
+            max-width: 12rem;
+        }
+    }
+
+    .cards-wrapper {
         max-width: 1200px;
         background-color: white;
         margin: 0 auto;
