@@ -1,10 +1,12 @@
 <script>
 import axios from 'axios';
 import MainSingleCard from './MainSingleCard.vue';
+import MainCardSelector from "./MainCardSelector.vue"
 
 export default {
     components: {
         MainSingleCard,
+        MainCardSelector,
     },
 
     data() {
@@ -70,12 +72,7 @@ export default {
 
 <template>
     <section class="card-selector">
-        <div class="form-floating">
-            <select class="form-select" aria-label="Floating label select example" name="archetype-selector" id="archetype-selector">
-                <option v-for="(archetype, index) in archetypeList" key="index" :value="archetype">{{ archetype }}</option>
-                </select>
-            <label for="archetype-selector">Choose an archetype:</label>
-        </div>
+        <MainCardSelector :archetypeList="archetypeList"/>
     </section>
     <section class="row align-items-stretch justify-content-center pt-4 cards-wrapper">
         <div class="col-12 text-bg-dark p-2 mb-2 text-center cards-counter">
