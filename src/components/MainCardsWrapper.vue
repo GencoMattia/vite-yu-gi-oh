@@ -29,7 +29,7 @@ export default {
 
     methods: {
         getCards(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0')
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=1000&offset=0')
             .then((response) => {
                 // handle success
                 console.log(response.data.data);
@@ -46,7 +46,7 @@ export default {
         },
 
         getArchetypes(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0')
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=1000&offset=0')
             .then((response) => {
                 // handle success
                 const cards = response.data.data;
