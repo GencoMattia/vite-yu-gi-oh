@@ -19,7 +19,7 @@ export default {
 
             ],
 
-            selectedArchetype: "",
+            selectedArchetype: "Tutti",
 
             filteredCards: [
                 
