@@ -18,6 +18,12 @@ export default {
             archetypeList: [
 
             ],
+
+            selectedArchetype: "",
+
+            filteredCards: [
+                this.cardsList
+            ],
         };
     },
 
@@ -63,6 +69,18 @@ export default {
         }
     },
 
+    computed: {
+        filterCardsByArchetype(selectedArchetype) {
+            this.selectedArchetype = selectedArchetype;
+
+            if (selectedArchetype === '') {
+                this.filteredCards = this.cardsList;
+            } else {
+                this.filteredCards = this.cardsList.filter(card => card.archetype === selectedArchetype);
+            }
+        },
+    },
+
     created(){
         this.getCards();
         this.getArchetypes();
@@ -72,7 +90,7 @@ export default {
 
 <template>
     <section class="card-selector">
-        <MainCardSelector :archetypeList="archetypeList"/>
+        <MainCardSelector @archetype-selected="filterCardsByArchetype" :archetypeList="archetypeList"/>
     </section>
     <section class="row align-items-stretch justify-content-center pt-4 cards-wrapper">
         <div class="col-12 text-bg-dark p-2 mb-2 text-center cards-counter">
