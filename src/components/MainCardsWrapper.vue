@@ -14,16 +14,14 @@ export default {
             ],
 
             archetypeList: [
-                "Alien",
-                "Dragon",
-                "Fairy"
+
             ],
         };
     },
 
     methods: {
         getCards(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0')
             .then((response) => {
                 // handle success
                 console.log(response.data.data);
@@ -36,11 +34,36 @@ export default {
             .finally(function () {
                 // always executed
             });
+        },
+
+        getArchetypes(){
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0')
+            .then((response) => {
+                // handle success
+                const cards = response.data.data;
+                const allArchetypes = [];
+
+                cards.map(function(card) {
+                    if (card.archetype !== undefined) {
+                        allArchetypes.push(card.archetype);
+                    }
+                });
+                
+                this.archetypeList = allArchetypes;
+            })
+            .catch(function (error) {
+                // handle error
+                console.error('Errore durante il recupero degli archetipi:', error);
+            })
+            .finally(function () {
+                // always executed
+            });
         }
     },
 
     created(){
         this.getCards();
+        this.getArchetypes();
     }
 };
 </script>
